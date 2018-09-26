@@ -1,0 +1,33 @@
+<view>
+
+  <view class='container'>
+      <block wx:if="{{isMe}}">
+        <image src="{{userInfo.avatarUrl}}" class="face" bindtap='changeFace'></image>
+        <label class='nickname'>{{nickname}}</label>
+      </block> 
+      <block wx:if="{{!isMe}}">
+      <view class='wxLoginBtn'>
+      <van-button type="primary" open-type="getUserInfo" bindgetuserinfo='doLogin'>使用微信登录</van-button>
+      </view>
+     </block>
+
+  </view>
+
+</view>
+
+
+<van-cell-group>
+  <van-cell value="" icon="shop" is-link>
+    <view slot="title">
+      <span class="van-cell-text">我的发布</span>
+      <van-tag type="danger">标签</van-tag>
+    </view>
+  </van-cell>
+  <van-cell title="我的收藏" icon="like-o" is-link />
+  <van-cell title="我的消息" icon="pending-evaluate" is-link />
+  <van-cell title="设置" icon="more-o" is-link />
+</van-cell-group>
+
+
+
+

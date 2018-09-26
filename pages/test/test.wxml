@@ -1,0 +1,9 @@
+
+ <view class="image_content">
+    <view class='image'>
+      <image class="deleteImg" mode="aspectFill"  src="/img/deleteImg.png" ></image>
+      <image class="moment_img" mode="aspectFill"  src="/img/phone.png" bindtap="previewImg"></image>
+    </view>
+ </view>
+    
+

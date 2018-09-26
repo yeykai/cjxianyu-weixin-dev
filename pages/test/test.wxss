@@ -1,0 +1,23 @@
+/* pages/login/login.wxss */
+.image{
+ width:31%;
+ height: 100px;
+ padding: 2px;
+ position: relative;
+}
+.moment_img{
+ width: 100%;
+ height: 100%;
+}
+.image_content{
+ width: 100%;
+ display: flex;
+ flex-wrap: wrap;
+ margin-bottom: 20px
+}
+.deleteImg{
+   position: absolute;
+   left: 80%;
+   width: 20%;
+   height: 20%;
+}

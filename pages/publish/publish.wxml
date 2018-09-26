@@ -1,0 +1,37 @@
+<view class="page">
+    <van-cell-group>
+        <van-field
+          value="{{ username }}"
+          required
+          clearable
+          label="商品名称"
+          icon="question"
+          placeholder="请输入商品名"
+          bind:click-icon="onClickIcon"
+        />
+
+        <van-field
+          value="{{ password }}"
+          type="textarea"
+          label="描述"
+          placeholder="请输入5-50个字"
+          autosize
+          required
+          border="{{ false }}"
+        />
+
+    </van-cell-group>
+
+<!-- <view>xixi</view> -->
+ <view class="image_content">
+    <view class='image' wx:for="{{img_url}}">
+      <image class="deleteImg" mode="aspectFill"  data-index='{{index}}' src="/img/deleteImg.png" bindtap="deleteImg"></image>
+      <image class="moment_img" mode="aspectFill" data-index='{{index}}' src="{{item}}" bindtap="previewImg"></image>
+    </view>
+    <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+      <image bindtap="chooseimage" class="moment_img" src='/img/add_image.png'></image>
+    </view>
+ </view>
+ <button bindtap="send" style='margin-right:5px;margin-left:5px'>发布</button>
+    
+</view>

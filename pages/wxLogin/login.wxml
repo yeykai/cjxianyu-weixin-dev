@@ -1,0 +1,39 @@
+<view>
+    <view class="login-icon">
+        <image class="login-img" src="https://wx.qlogo.cn/mmopen/vi_32/K0xMEzRQJqbibfIic1ibae3KMJwehFPzoPa4mf0wiarvsokHhZib8zziblDkWx8IiaicTTQ8plRdWAc6nu6JUkQdx5aANA/132"></image>
+    </view>
+    <view class="login-from">
+        <form bindsubmit='doLogin'>
+            <!--账号-->
+            <view class="inputView">
+                <image class="nameImage"></image>
+                <label class="loginLabel">账号</label>
+                <input name="username" value='yeykai' class="inputText" placeholder="请输入账号" />
+            </view>
+            <view class="line"></view>
+
+            <!--密码-->
+            <view class="inputView">
+                <image class="keyImage" ></image>
+                <label class="loginLabel">密码</label>
+                <input name="password" value='123456' class="inputText" password="true" placeholder="请输入密码" />
+            </view>
+
+            <!--按钮-->
+            <!-- <view>
+                <button class="loginBtn" type="default">普通登录</button>
+            </view> -->
+            <!--  -->
+            <view class="loginBtn">
+               <van-row >
+               <van-col span="20" offset="2"><van-button type="primary" size="large">普通登录</van-button></van-col>
+               </van-row>
+            </view>
+           
+
+            <view>
+                <button class="goRegistBtn" type="primary" open-type='getUserInfo' bindgetuserinfo='doLogin'>微信登录</button>
+            </view>
+        </form>
+    </view>
+</view>

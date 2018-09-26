@@ -1,0 +1,58 @@
+/**index.wxss**/
+
+.page {
+  font-family: '微软雅黑';
+  background-color: #fff;
+}
+
+.swiper{
+  width: 100%
+}
+
+.scroll{
+  display: flex;
+  white-space: nowrap;
+  margin-top: 35rpx;
+  margin-bottom: 35rpx;
+}
+
+.scroll-view-item{
+  margin-left: 35rpx;
+  height: 200rpx;
+  width: 200rpx;
+  display: inline-block;
+}
+
+
+.scroll-view-item-info{
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.scroll-image{
+  height: 150rpx;
+  width: 150rpx;
+  margin:0 auto 10rpx auto;
+}
+
+.scroll-text{
+  font-size: 12px;
+  text-align: center;
+}
+
+
+#red{
+  background-color: red
+}
+
+#yellow{
+  background-color: yellow
+}
+
+#blue{
+  background-color: blue
+}
+
+
+
