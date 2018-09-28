@@ -1,4 +1,3 @@
-// pages/login/login.js
 var app = getApp();
 
 Page({
@@ -83,47 +82,87 @@ Page({
     })
   },
 
-  send:function(){
+  uploadGoodsImg: function (goodsId){
     var me = this;
     var imgFilePaths = me.data.img_url;
     var count = me.data.count;
-    wx.showLoading({
-      title: '上传中--',
-    })
     var serverUrl = app.serverUrl;
-    // var userInfo = app.getGlobalUserInfo();
+    wx.showLoading({
+      title: '上传图片中--',
+    })
     wx.uploadFile({
-      url: serverUrl + '/user/uploadFace', //仅为示例，非真实的接口地址
+      url: serverUrl + '/goods/uploadGoodsImg', 
       filePath: imgFilePaths[count],
       name: 'file',
+      formData: {
+        goodsId: goodsId
+      },
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function (res) {
-
-      },
-      complete:function(res){
+      success: function (res) {},
+      complete: function (res) {
         count++;
         me.setData({
-          count:count
+          count: count
         })
-        if (count >= imgFilePaths.length){
+        if (count >= imgFilePaths.length) {
           var data = JSON.parse(res.data);
           console.log(data);
           wx.hideLoading();
           if (data.status == 200) {
+            wx.hideLoading();
             wx.showToast({
               title: '上传成功!~~',
               icon: 'success'
             });
+            me.setData({
+              count: 0
+            })
           } else if (data.status == 500) {
             wx.showToast({
               title: data.msg,
             });
           }
-        }else{
-          me.send();
-        }       
+        } else {
+          me.uploadGoodsImg(goodsId);
+        }
+      }
+    })
+  },
+
+  send:function(e){
+    var me = this;
+    console.log(e);
+    var goodsName = e.detail.value.goodsName;
+    var goodsDesc = e.detail.value.goodsDesc;
+    var goodsPrice = e.detail.value.goodsPrice;
+    var goodsNum = e.detail.value.goodsNum;
+    var goodsAddress = e.detail.value.goodsAddress;
+    var goodsPhone = e.detail.value.goodsPhone;
+    var thirdSession = wx.getStorageSync("thirdsession")
+    wx.showLoading({
+      title: '发布中--',
+    })
+    var serverUrl = app.serverUrl;
+    wx.request({
+      url: serverUrl + '/goods/uploadGoods',
+      data: {
+        thirdSession: thirdSession,
+        goodsName: goodsName,  
+        goodsDesc: goodsDesc,
+        goodsPrice: goodsPrice,
+        goodsNum: goodsNum,
+        goodsAddress: goodsAddress,
+        goodsPhone: goodsPhone,
+      },
+      method: "GET",
+      success: function (res) {
+        wx.hideLoading();
+        console.log(res.data.data);
+        //商品信息上传成功后，上传商品图片
+        me.uploadGoodsImg(res.data.data);
+        
       }
     })
   }

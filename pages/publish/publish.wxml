@@ -1,9 +1,11 @@
 <view class="page">
+<form bindsubmit='send'>
     <van-cell-group>
         <van-field
-          value="{{ username }}"
           required
           clearable
+          left-icon="contact"
+          name="goodsName"
           label="商品名称"
           icon="question"
           placeholder="请输入商品名"
@@ -11,9 +13,10 @@
         />
 
         <van-field
-          value="{{ password }}"
           type="textarea"
           label="描述"
+          left-icon="contact"
+          name="goodsDesc"
           placeholder="请输入5-50个字"
           autosize
           required
@@ -22,16 +25,62 @@
 
     </van-cell-group>
 
-<!-- <view>xixi</view> -->
- <view class="image_content">
-    <view class='image' wx:for="{{img_url}}">
-      <image class="deleteImg" mode="aspectFill"  data-index='{{index}}' src="/img/deleteImg.png" bindtap="deleteImg"></image>
-      <image class="moment_img" mode="aspectFill" data-index='{{index}}' src="{{item}}" bindtap="previewImg"></image>
+
+    <view class="image_content">
+        <view class='image' wx:for="{{img_url}}">
+          <image class="deleteImg" mode="aspectFill"  data-index='{{index}}' src="/img/deleteImg.png" bindtap="deleteImg"></image>
+          <image class="moment_img" mode="aspectFill" data-index='{{index}}' src="{{item}}" bindtap="previewImg"></image>
+        </view>
+        <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+          <image bindtap="chooseimage" class="moment_img" src='/img/addImg.png'></image>
+        </view>
     </view>
-    <view class='image' style='display:{{hideAdd?"none":"block"}}'>
-      <image bindtap="chooseimage" class="moment_img" src='/img/add_image.png'></image>
-    </view>
- </view>
- <button bindtap="send" style='margin-right:5px;margin-left:5px'>发布</button>
-    
+ 
+   <van-cell-group>
+        <van-field
+          required
+          clearable
+          left-icon="gold-coin"
+          name="goodsPrice"
+          label="单价"
+          icon="question"
+          placeholder="请输入数字"
+          bind:click-icon="onClickIcon"
+        />
+
+        <van-field
+          value="1"
+          label="数量"
+          left-icon="contact"
+          name="goodsNum"
+          placeholder=""
+          required
+          border="{{ false }}"
+        />
+
+        <van-field
+          left-icon="contact"
+          name="goodsPhone"
+          label="联系方式"
+          required
+          border="{{ false }}"
+        />
+
+        <van-field
+          left-icon="contact"
+          value=""
+          name="goodsAddress"
+          label="交易地点"
+          placeholder="例：学瀚楼下"
+          required
+          border="{{ false }}"
+        />
+
+    </van-cell-group>
+ 
+ 
+ 
+      <button class="publishBtn" type="primary" form-type='submit'>发布</button>
+  
+  </form>
 </view>
