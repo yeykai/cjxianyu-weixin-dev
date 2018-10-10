@@ -9,7 +9,8 @@ Page({
     img_url: [],
     content: '',
     //已上传图片数量
-    count:0
+    count:0,
+    hideAdd:false
   },
 
   /**
@@ -46,11 +47,11 @@ Page({
           //图如果满了9张，不显示加图
           if (that.data.img_url.length >= 8) {
             that.setData({
-              hideAdd: 1
+              hideAdd: true
             })
           } else {
             that.setData({
-              hideAdd: 0
+              hideAdd: false
             })
           }
         }
@@ -78,7 +79,7 @@ Page({
     img_url.splice(index, 1); 
     me.setData({
       img_url: img_url,
-      hideAdd: me.data.img_url.length <9 ? 0 : 1
+      hideAdd: me.data.img_url.length <9 ? false : true
     })
   },
 
@@ -118,6 +119,9 @@ Page({
             });
             me.setData({
               count: 0
+            });
+            wx.reLaunch({
+              url: '/pages/index/index'
             })
           } else if (data.status == 500) {
             wx.showToast({

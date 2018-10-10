@@ -1,10 +1,10 @@
 <view class="page">
-<form bindsubmit='send'>
+  <form bindsubmit='send'>
     <van-cell-group>
         <van-field
           required
           clearable
-          left-icon="contact"
+          left-icon="gift"
           name="goodsName"
           label="商品名称"
           icon="question"
@@ -15,7 +15,7 @@
         <van-field
           type="textarea"
           label="描述"
-          left-icon="contact"
+          left-icon="records"
           name="goodsDesc"
           placeholder="请输入5-50个字"
           autosize
@@ -51,29 +51,26 @@
         <van-field
           value="1"
           label="数量"
-          left-icon="contact"
+          left-icon="exchange"
           name="goodsNum"
           placeholder=""
           required
-          border="{{ false }}"
         />
 
         <van-field
-          left-icon="contact"
+          left-icon="chat"
           name="goodsPhone"
           label="联系方式"
           required
-          border="{{ false }}"
         />
 
         <van-field
-          left-icon="contact"
+          left-icon="location"
           value=""
           name="goodsAddress"
           label="交易地点"
           placeholder="例：学瀚楼下"
           required
-          border="{{ false }}"
         />
 
     </van-cell-group>

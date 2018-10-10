@@ -1,0 +1,45 @@
+<!--pages/content.wxml-->
+<view class='container'>
+  
+  <view class='swiper'>
+    <swiper class='swiper' indicator-dots="true"
+      interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image  data-index='{{index}}' bindtap="previewImg" mode='aspectFill' src="{{serverUrl}}{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class='priceAndLike'>
+    <text class='price'>￥{{price}}</text>
+    <text class='like-num'>收藏 {{likeCounts}}</text>
+  </view>
+
+  <view class='titleAndDesc'>
+    <text class='title'>{{goodsName}}</text>
+    <text class='desc'>{{goodsDesc}}</text>
+  </view>
+
+
+<view class='line'></view>
+
+
+  <view class='seller'>
+     <view class='seller-img'>
+      <image class='sellerImg' src='{{avatar_url}}'></image>
+     </view>
+     
+     <view class='Name'>
+       <text>{{nickName}}</text>
+     </view>
+     
+     <view class='address'>
+       <van-icon name="location" />
+       <text class='address-text'>{{address}}</text>
+     </view>
+  </view>
+
+</view>
+ 
