@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "van-icon": "/dist/icon/index"
+    "van-icon": "/dist/icon/index",
+    "van-submit-bar": "/dist/submit-bar/index",
+    "van-button": "/dist/button/index",
+    "van-tabbar": "/dist/tabbar/index",
+    "van-tabbar-item": "/dist/tabbar-item/index"
   }
 }

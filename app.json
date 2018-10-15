@@ -1,13 +1,13 @@
 {
   "pages": [
-
+    "pages/commit/commit",
     "pages/index/index",
-      "pages/content/content",
+    "pages/content/content",
     "pages/publish/publish",
     "pages/mine/mine",
     "pages/test/test",
-    "pages/wxLogin/login",
-    "pages/content"
+    "pages/wxLogin/login"
+
   ],
   "window": {
     "backgroundTextStyle": "light",
