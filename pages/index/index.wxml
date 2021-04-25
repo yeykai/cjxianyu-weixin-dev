@@ -1,11 +1,11 @@
 <!-- index.wxml -->
-<view class="page">
+<view class="container">
     <view class='swiper'>
     <swiper indicator-dots="true"
       autoplay="true" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{imgUrls}}">
         <swiper-item>
-          <image src="{{item}}" class="slide-image" width="450" height="150"/>
+          <image mode='aspectFill' src="{{item}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
@@ -38,43 +38,30 @@
       </view>
     </scroll-view>
 
-    <van-card
-      title="林文麒"
-      desc="我是死肥猪"  
-      num="2"
-      price="2.00"
-      thumb="{{ imageURL }}"
-    >
-      <view slot="footer">
-        <van-button size="mini">收藏</van-button>
-        <van-button size="mini">我想要</van-button>
+    <view  class='goods-content' >   
+      
+      <view wx:for="{{goodsList}}" class='content'>
+        <view class='seller'>
+          <view class='seller-img'>
+            <image class='sellerImg' src='{{item.avatar_url}}'></image>
+          </view>
+          
+          <view class='Name'>
+            <text>{{item.nickName}}</text>
+          </view>
+        </view>
+        <view>
+          <image bindtap='showGoodsInfo'  data-arrindex='{{index}}' mode="aspectFill" class='content-img' src='{{serverUrl}}{{item.goodsImg}}'></image>
+        </view>
+        <view class='content-title'>
+          <text class='title'>{{item.goodsName}}</text>
+        </view>
+        <view class='content-info'>
+          <text class='price'>￥{{item.price}}</text>
+          <text class='publish-time'>{{item.timeAgoStr}}</text>
+        </view>
       </view>
-    </van-card>
 
-        <van-card
-      title="林文麒"
-      desc="我是死肥猪"  
-      num="2"
-      price="2.00"
-      thumb="{{ imageURL }}"
-    >
-      <view slot="footer">
-        <van-button size="mini">收藏</van-button>
-        <van-button size="mini">我想要</van-button>
-      </view>
-    </van-card>
-
-        <van-card
-      title="林文麒"
-      desc="我是死肥猪"  
-      num="2"
-      price="2.00"
-      thumb="{{ imageURL }}"
-    >
-      <view slot="footer">
-        <van-button size="mini">收藏</van-button>
-        <van-button size="mini">我想要</van-button>
-      </view>
-    </van-card>
+    </view>
 
 </view>

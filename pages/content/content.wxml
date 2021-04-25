@@ -1,0 +1,129 @@
+<!--pages/content.wxml-->
+<view class='container'>
+   
+  <view class='swiper'>
+    <swiper class='swiper' indicator-dots="true"
+      interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image  data-index='{{index}}' bindtap="previewImg" mode='aspectFill' src="{{serverUrl}}{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <view class='priceAndLike'>
+    <text class='price'>￥{{price}}</text>
+    <text class='like-num'>收藏 {{likeCounts}}</text>
+  </view>
+
+  <view class='titleAndDesc'>
+    <text class='title'>{{goodsName}}</text>
+    <text class='desc'>{{goodsDesc}}</text>
+  </view>
+
+
+<view class='line'></view>
+
+
+  <view class='seller'>
+     <view class='seller-img'>
+      <image class='sellerImg' src='{{avatar_url}}'></image>
+     </view>
+     
+     <view class='Name'>
+       <text>{{nickName}}</text>
+     </view>
+     
+     <view class='address'>
+       <van-icon name="location" />
+       <text class='address-text'>{{address}}</text>
+     </view>
+  </view>
+  
+  <view class='line'></view>
+
+  <view class='comments-title'>
+    <text>留言</text>
+  </view>
+
+  <view class='comments'>
+    <view class='user-img'>
+      <image class='userImg' src='{{avatar_url}}'></image>
+     </view>
+     <form class='comments-form' bindsubmit='saveComment'>
+    <view class='comments-input'>
+        <input 
+              placeholder="{{placeholder}}" 
+              confirm-type="send"   
+              name="comments"
+              bindconfirm="saveComment" 
+              focus='{{commentFocus}}' 
+              value='{{contentValue}}'
+              data-replyFatherCommentId='{{replyFatherCommentId}}'
+              data-replyToUserId='{{replyToUserId}}'/>
+    </view>
+    <!-- <view class=''> -->
+       <button class='comments-send' 
+               data-replyFatherCommentId='{{replyFatherCommentId}}'
+               data-replyToUserId='{{replyToUserId}}'
+               form-type='submit'
+               >发送</button>
+    <!-- </view> -->
+    </form>
+  </view>
+
+<block wx:for="{{commentsList}}">
+     <view class='comments-item' bindtap='reply'   data-fatherCommentId='{{item.id}}'  data-toUserId='{{item.fromUserId}}' data-toNickname='{{item.nickname}}' >
+        <view class='user-img'>
+          <image class='userImg' src='{{avatar_url}}'></image>
+        </view>
+        <view class='comments-info'>
+          <view class='comments-name'>
+              <block wx:if="{{item.toNickname!=null}}">
+              <text class='commentsName'>{{item.nickname}} 回复 {{item.toNickname}}：</text>
+              </block>
+              <block wx:else>
+              <text class='commentsName'>{{item.nickname}}</text>
+              </block>
+              <text class='commentsTime'>{{item.timeAgoStr}}</text>
+          </view>
+          <view class='comments-contents'>
+                <text>{{item.comment}}</text>
+          </view>
+        </view>
+    </view>
+</block>
+           
+
+<view class='goodsBarBlock'></view>
+
+
+</view>
+   <!-- <view class='goodsBar'> -->
+
+        <van-submit-bar
+          button-text="我想要"
+          bind:submit="onClickButton"
+        >
+           <view class='likeAndShare'>
+               <view class='likeItem'>
+                  <block wx:if="{{islikeGoods}}">
+                    <image class='likeIcon' src='/img/likeClick.png' bindtap='likeGoods'></image>
+                  </block>
+                  <block wx:else>
+                    <image class='likeIcon' src='/img/like.png' bindtap='likeGoods'></image>
+                  </block>
+                  <text class='likeText'>收藏</text>
+               </view>
+                <view class='likeItem'>
+                  <image class='shareIcon' src='/img/share.png'  bindtap='shareGoods'></image>
+                  <text class='likeText'>分享</text>
+               </view>
+           </view>
+        </van-submit-bar>
+   <!-- </view> -->
+
+
+

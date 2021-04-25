@@ -24,3 +24,8 @@
    width: 20%;
    height: 20%;
 }
+
+.publishBtn{
+  margin: 30rpx 15rpx 0 15rpx;
+
+}

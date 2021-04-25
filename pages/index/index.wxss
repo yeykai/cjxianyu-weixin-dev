@@ -1,8 +1,13 @@
 /**index.wxss**/
 
-.page {
+.container {
   font-family: '微软雅黑';
-  background-color: #fff;
+  background-color: #f0f0f0;
+}
+
+.slide-image{
+  width: 100%;
+  height: 100%;
 }
 
 .swiper{
@@ -10,10 +15,11 @@
 }
 
 .scroll{
+  background-color: #fff;
   display: flex;
   white-space: nowrap;
-  margin-top: 35rpx;
-  margin-bottom: 35rpx;
+  padding-top: 35rpx;
+  padding-bottom: 35rpx;
 }
 
 .scroll-view-item{
@@ -41,18 +47,77 @@
   text-align: center;
 }
 
-
-#red{
-  background-color: red
+.content{
+ background-color: #fff;
+ width: 47%;
+ margin-left: 15rpx;
+ margin-bottom: 15rpx;
+ height: 550rpx;
+ display: inline-block;
+ border-radius: 2%;
+ border:1px solid #fff;
+ box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
-#yellow{
-  background-color: yellow
+.seller{
+  display: flex;
+  white-space: nowrap;
+  height: 70rpx;
+  padding-top: 10rpx;
+  padding-left: 25rpx;
 }
 
-#blue{
-  background-color: blue
+.sellerImg{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
 }
 
+.Name{
+  font-size: 10px;
+  margin-left: 25rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  width: 200rpx;
+  display: inline-block;
+}
 
+.goods-content{
+  flex-direction:row;
+  margin-top: 15rpx;
+}
 
+.content-img{
+  width: 100%;
+  height: 320rpx;
+}
+
+.content-title{
+  margin-top: 8rpx;
+}
+
+.content-info{
+   margin-top: 8rpx;
+}
+
+.title{
+  margin-left: 10rpx;
+  display: inline-block;
+  width: 98%;
+  font-size: 12px;
+}
+
+.price{
+  margin-left: 10rpx;
+  display: inline-block;
+  width: 48%;
+  color: red;
+}
+
+.publish-time{
+  display: inline-block;
+  width: 48%;
+  font-size: 10px;
+  color: #bcbcbc;
+  text-align: right;
+}

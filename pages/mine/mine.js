@@ -11,7 +11,6 @@ Page({
   onLoad:function(params){
     var me = this;
     wx.hideToast();
-
     var userInfo = app.getGlobalUserInfo();
     if (userInfo != null && userInfo != "" && userInfo != undefined){
         wx.checkSession({
@@ -39,6 +38,7 @@ Page({
 
   // 登录  
   doLogin: function (e) {
+    var me = this;
     //获取开放数据
     var encryptedData = e.detail.encryptedData
     var signature = e.detail.signature
@@ -55,39 +55,26 @@ Page({
         wx.request({
           url: serverUrl + "/wxuser/wxLogin",
           data: {
-            code: code
+            code: code,
+            encryptedData: encryptedData,
+            rawData: rawData,
+            signature: signature,
+            iv: iv
           },
           method: "GET",
           success: function (result) {
-            console.log(result);
+            console.log("wxLogin");
             // 保存用户信息到本地缓存
             app.setGlobalUserInfo(e.detail.userInfo);
             wx.setStorageSync("thirdsession", result.data.data)
-            //从本地缓存中取出thirdsession
-            var thirdsession = wx.getStorageSync('thirdsession')
-            wx.request({
-              url: serverUrl + "wxuser/wxRegister", //后端请求地址
-              method: "GET",
-              data: {
-                thirdSession: thirdsession,
-                encryptedData: encryptedData,
-                rawData: rawData,
-                signature: signature,
-                iv: iv
-              },
-              header: {
-                'content-type': 'application/json' // 默认值
-              },
-              success: function (res) {
-                //成功后跳转至用户信息页面
-                wx.redirectTo({
-                  url: '../mine/mine',
-                })
-              }
-            })
             wx.showToast({
               title: '登录成功',
               icon: 'success',
+            });
+            me.setData({
+              userInfo: e.detail.userInfo,
+              nickname: e.detail.userInfo.nickName,
+              isMe: true
             })
           }
         })

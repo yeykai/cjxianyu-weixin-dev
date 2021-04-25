@@ -3,5 +3,6 @@
     "van-search": "/dist/search/index",
     "van-card": "/dist/card/index",
     "van-button": "/dist/button/index"
-  }
+  },
+    "enablePullDownRefresh": true
 }

@@ -1,0 +1,259 @@
+/* pages/content.wxss */
+
+.container{
+  position: relative;
+  background-color: #f6f6f6;
+  /* height: 1000rpx; */
+}
+
+.goodsBar{
+  height: 90rpx;
+  width:100%;
+  position: fixed;
+  bottom:0;
+  padding:10rpx;
+  background:#F7F7FA;
+  font-size:20rpx;
+}
+
+.likeAndShare{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  white-space: nowrap;
+}
+
+.likeItem{
+  height: 100%;
+  width: 25%;
+  padding: 10rpx;
+  display: inline-block;
+  border-right: 1 solid #e1e1e1;
+}
+
+.shareIcon{  
+  height: 45rpx;
+  width: 45rpx;
+  display: block;
+  margin: 10rpx auto 0 auto;
+}
+
+.likeIcon{
+  height: 55rpx;
+  width: 55rpx;
+  display: block;
+  margin: 0 auto;
+}
+.likeText{
+  font-size: 9px;
+  display: block;
+  text-align: center;
+}
+
+.slide-image{
+  width: 100%;
+  height: 1000rpx;
+}
+
+.swiper{
+  width: 100%;
+height: 1000rpx;
+}
+
+.priceAndLike{
+  margin-top: 15rpx;
+}
+
+.price{
+  font-size: 24px;
+  margin-left: 10rpx;
+  display: inline-block;
+  width: 48%;
+  color: red;
+}
+
+.like-num{
+  display: inline-block;
+  width: 48%;
+  font-size: 12px;
+  color: #bcbcbc;
+  text-align: right;
+}
+
+.title{
+  margin-top: 20rpx;
+  font-size: 16px;
+  margin-left: 10rpx;
+  display: block;
+  width: 100%;
+}
+
+.desc{
+  font-size: 12px;
+  margin-top: 25rpx;
+  margin-left: 10rpx;
+  display: block;
+  width: 100%;
+  /* color: #bcbcbc; */
+}
+
+.line{
+  width: 97%;
+  margin: 10rpx;
+  border-top:1px solid #cdcdcd;
+}
+
+
+.seller{
+  display: flex;
+  white-space: nowrap;
+}
+
+.seller-img{
+  margin-top: 20rpx;
+  margin-left: 25rpx;
+  height:70rpx;
+  width: 70rpx;
+  display: inline-block;
+}
+
+.sellerImg{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+}
+
+.Name{
+    margin-top: 20rpx;
+  font-size: 14px;
+  margin-left: 25rpx;
+  line-height: 50rpx;
+  height: 50rpx;
+  width: 200rpx;
+  display: inline-block;
+}
+
+.address{
+  height: 80rpx;
+  width: 100%;
+  display: inline-block;
+  text-align: right;
+  padding-right: 15rpx;
+}
+
+.address-text{
+  font-size: 14px;
+  line-height: 80rpx;
+  display: inline-block;
+  margin-left: 10rpx;
+}
+
+.comments-title{
+  padding:5px;
+  font-size: 14px;
+}
+
+
+.user-img{
+  margin: 20rpx 0 0 20rpx;
+  height:75rpx;
+  width: 75rpx;
+  display: inline-block;
+}
+
+.userImg{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+}
+
+.goodsBarBlock{
+  width: 100%;
+  height: 120rpx;
+}
+
+.comments{
+  height: 110rpx;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+}
+.comments-input{
+  width:80%;
+  padding: 8rpx 0 8rpx 25rpx;
+  background: #cdcdcd;
+  border-radius: 20px;
+  display: inline-block;
+  height: 60rpx;
+  margin-top: 15rpx;
+ font-size: 16px;
+}
+
+.comments-form{
+    width: 80%;
+    height:100%;
+    display: flex;
+  white-space: nowrap;
+}
+.comments-send{
+  width:30%;
+  font-size: 12px;
+  /* padding: 8rpx; */
+  background: #E22425;
+  color: #ffffff;
+  margin-left: 30rpx;
+  margin-bottom: -10rpx;
+  border-radius: 20px;
+  display: inline-block;
+  height: 60rpx;
+  /* margin: 20rpx 0 0 30rpx; */
+}
+
+.send-button{
+  display: inline-block;
+  font-size: 12px;
+  height:85rpx;
+  width: 100%;
+  background: #E22425;
+  color: #ffffff;
+  border-radius: 20px;
+}
+
+.comments-item{
+  height: 130rpx;
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
+}
+
+.comments-info{
+  display: inline-block;
+  height: 60rpx;
+  margin: 25rpx 0 0 0;
+  font-size: 16px;
+  width: 100%
+}
+
+.content-name{
+  height: 100%;
+  display: flex;
+  white-space: nowrap;
+  margin-bottom: 15rpx;
+}
+
+.commentsName{
+  display: inline-block;
+  width: 65%
+}
+
+.commentsTime{
+  margin-left: 50rpx;
+  font-size: 12px;
+  color: #cdcdcd;
+  display: inline-block;
+}
+
+.comments-contents{
+  font-size: 14px;
+  margin-top: 15rpx;
+}
